@@ -12,7 +12,7 @@ Then
 
     bin/cake server -p 9001
 
-Then navigate to 
+You should see the 'Users' config output to the console at this point, otherwise, for a print_r, Navigate to
 
     http://localhost:9001/
     
