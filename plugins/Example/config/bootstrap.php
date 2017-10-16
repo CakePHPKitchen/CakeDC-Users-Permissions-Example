@@ -2,6 +2,17 @@
 
 use Cake\Core\Configure;
 
-$permissions = Configure::read('Users');
-print_r($permissions);
-die();
+$permissions = \Cake\Core\Configure::read('MyPermissions');
+$someMorePermissions = [
+    'Users.SimpleRbac.permissions' => [
+        [
+            'role' => '*',
+            'plugin' => 'Example',
+            'controller' => 'Dashboard',
+            'action' => ['index'],
+        ],
+    ]
+];
+
+$permissions = array_merge((array)$permissions, $someMorePermissions);
+\Cake\Core\Configure::write('MyPermissions', $permissions);

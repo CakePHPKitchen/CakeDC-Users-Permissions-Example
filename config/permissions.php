@@ -49,7 +49,7 @@
     ],
  */
 
-return [
+$permissions = [
     'Users.SimpleRbac.permissions' => [
         //admin role allowed to all the things
         [
@@ -90,3 +90,9 @@ return [
         ],
     ]
 ];
+
+$morePermissions = \Cake\Core\Configure::read('MyPermissions');
+$allPerms = array_merge($permissions, $morePermissions);
+
+return $allPerms;
+//return ['CakeDC/Auth.permissions' => $allPerms];
